@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/sayar/PizzaBotManager#readme",
   "dependencies": {
+    "@material-ui/core": "^1.5.1",
     "adminlte-reactjs": "^1.0.6",
     "babel": "^6.23.0",
     "babel-preset-es2017": "^6.24.1",
@@ -32,12 +33,11 @@
     "express": "^4.13.4",
     "jquery": "^2.2.3",
     "npm": "^6.4.0",
-    "react": "^15.0.2",
+    "react": "^16.4.2",
     "react-addons-pure-render-mixin": "^15.0.2",
     "react-bootstrap": "^0.32.1",
-    "react-dom": "^15.0.2",
-    "react-page-layout": "^0.9.8",
-    "react-router": "^2.4.0",
+    "react-dom": "^16.4.2",
+    "react-router": "^2.8.1",
     "restify": "^4.0.4"
   },
   "devDependencies": {
