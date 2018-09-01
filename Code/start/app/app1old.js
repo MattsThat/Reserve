@@ -13,6 +13,17 @@ var App = React.createClass({
 
 
         /*<div>
+        <Menu>
+            <MenuItem text="Submenu">
+            <MenuItem text="Child one" />
+            <MenuItem text="Child two" />
+            <MenuItem text="Child three" />
+            </MenuItem>
+         </Menu>
+
+
+
+
         <Grid fluid="true">
             <Row className="mytop">
                 <Col className="mytop">
