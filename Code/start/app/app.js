@@ -47,34 +47,23 @@ if (rootElement) {
           <br/>
           <br/>
           <div>
-            <table>
-              <tr>
             <Navbar collapseOnSelect fluid>
                 <Nav>
-                <td width="15%">
                   <NavItem eventKey={1} href="#">
                     Link
                   </NavItem>
-                  </td>
-                  <td width="15%">
                   <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
                     <MenuItem eventKey={3.1}>Action</MenuItem>
                     <MenuItem divider />
                     <MenuItem eventKey={3.4}>Separated link</MenuItem>
                   </NavDropdown>
-                  </td>
-                  <td width="15%">
                   <NavDropdown eventKey={3} title="Dropdown11" id="basic-nav-dropdown">
                     <MenuItem eventKey={3.1}>Action</MenuItem>
                     <MenuItem divider />
                     <MenuItem eventKey={3.4}>Separated link</MenuItem>
                   </NavDropdown>
-                  </td>
-                  <td width="55%"/>
                 </Nav>
             </Navbar>
-            </tr>
-            </table>
           </div>
         </div>
       //  }
