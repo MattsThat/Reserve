@@ -1,9 +1,8 @@
 
 import  React  from 'react';
-import { render } from 'react-dom';
+//import { render } from 'react-dom';
 import { Navbar , Nav, NavDropdown, NavItem, MenuItem }  from 'react-bootstrap';
-
-//import Demo from './gridlayout';
+import { Link } from 'react-router-dom'
 
 import {
     Alignment,
@@ -22,27 +21,27 @@ import {
     //Switch,
   } from "@blueprintjs/core";
 
-const rootElement = document.querySelector('#root');
-if (rootElement) {
+//const rootElement = document.querySelector('#root');
+//if (rootElement) {
 
-function callRegister (user) {
-  //alert("hello"+user);
-  location.href = "sociallogin.html";
-}
-
-  //render(<Demo/>, rootElement);
-  render(
+//render(<Demo/>, rootElement);
+ // render(
 //var App = React.createClass({
   //      render:function(){
+  const Header = () => (
         <div>
           <div>
             <blueNavbar>
                 <blueNavbar.Group align={Alignment.RIGHT}>
                     <blueNavbar.Heading>Welcome to Sports World</blueNavbar.Heading>
                     <blueNavbar.Divider />
-                    <Button className="bp3-minimal" icon="home" text="Home" />
+                    <Link to='/'>
+                    <Button className="bp3-minimal" icon="home" text="Home">
+                    </Button></Link>
                     <blueNavbar.Divider />
-                    <Button className="bp3-minimal" icon="new-person" text="Register" onClick={callRegister}/>
+                    <Link to='/Register'>
+                    <Button className="bp3-minimal" icon="new-person" text="Register">
+                    </Button></Link>
                     <blueNavbar.Divider />
                     <Button className="bp3-minimal" icon="log-in" text="Login" />
                     <blueNavbar.Divider />
@@ -74,9 +73,11 @@ function callRegister (user) {
       //  }
     //}
 //);
-, 
-rootElement);
-}
+//, 
+//rootElement);
+//}
+)
 
+export default Header
 //ReactDOM.render(<App/>,document.getElementById("root"));
     
