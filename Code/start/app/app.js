@@ -25,6 +25,11 @@ import {
 const rootElement = document.querySelector('#root');
 if (rootElement) {
 
+function callRegister (user) {
+  //alert("hello"+user);
+  location.href = "sociallogin.html";
+}
+
   //render(<Demo/>, rootElement);
   render(
 //var App = React.createClass({
@@ -37,7 +42,7 @@ if (rootElement) {
                     <blueNavbar.Divider />
                     <Button className="bp3-minimal" icon="home" text="Home" />
                     <blueNavbar.Divider />
-                    <Button className="bp3-minimal" icon="new-person" text="Register" />
+                    <Button className="bp3-minimal" icon="new-person" text="Register" onClick={callRegister}/>
                     <blueNavbar.Divider />
                     <Button className="bp3-minimal" icon="log-in" text="Login" />
                     <blueNavbar.Divider />
@@ -72,5 +77,6 @@ if (rootElement) {
 , 
 rootElement);
 }
+
 //ReactDOM.render(<App/>,document.getElementById("root"));
     
