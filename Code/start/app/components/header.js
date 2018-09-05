@@ -1,55 +1,10 @@
 
 import  React  from 'react';
 //import { render } from 'react-dom';
-import { Navbar , Nav, NavDropdown, NavItem, MenuItem }  from 'react-bootstrap';
+//import { Navbar , Nav, NavDropdown, NavItem, MenuItem }  from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 
-import {
-    Alignment,
-    Button,
-    Classes,
-    //H5,
-    Menu,
-    MenuDivider,
-    //MenuItem,
-    //Icon,
-    //Intent,
-    Navbar as blueNavbar,
-    //NavbarDivider,
-    //NavbarGroup,
-    //NavbarHeading,
-    //Switch,
-  } from "@blueprintjs/core";
-
-//const rootElement = document.querySelector('#root');
-//if (rootElement) {
-
-//render(<Demo/>, rootElement);
- // render(
-//var App = React.createClass({
-  //      render:function(){
-  const Header = () => (
-        <div>
-          <div>
-            <blueNavbar>
-                <blueNavbar.Group align={Alignment.RIGHT}>
-                    <blueNavbar.Heading>Welcome to Sports World</blueNavbar.Heading>
-                    <blueNavbar.Divider />
-                    <Link to='/'>
-                    <Button className="bp3-minimal" icon="home" text="Home">
-                    </Button></Link>
-                    <blueNavbar.Divider />
-                    <Link to='/Register'>
-                    <Button className="bp3-minimal" icon="new-person" text="Register">
-                    </Button></Link>
-                    <blueNavbar.Divider />
-                    <Button className="bp3-minimal" icon="log-in" text="Login" />
-                    <blueNavbar.Divider />
-                </blueNavbar.Group>
-            </blueNavbar>
-          </div>
-          <br/>
-          <br/>
+/* Horizontal menu removied from header.
           <div>
             <Navbar collapseOnSelect fluid>
                 <Nav>
@@ -69,15 +24,40 @@ import {
                 </Nav>
             </Navbar>
           </div>
+
+*/
+import {
+    Alignment,
+    Button,
+    Navbar as blueNavbar,
+  } from "@blueprintjs/core";
+
+  const Header = () => (
+        <div>
+          <div>
+            <blueNavbar>
+                <blueNavbar.Group align={Alignment.RIGHT}>
+                    <blueNavbar.Heading>Welcome to Sports World</blueNavbar.Heading>
+                    <blueNavbar.Divider />
+                    <Link to='/'>
+                    <Button className="bp3-minimal" icon="home" text="Home"/>
+                    </Link>
+                    <blueNavbar.Divider />
+                    <Link to='/signup'>
+                    <Button className="bp3-minimal" icon="new-person" text="Sign up"/>
+                    </Link>
+                    <blueNavbar.Divider />
+                    <Link to='/login'>
+                    <Button className="bp3-minimal" icon="log-in" text="Login" />
+                    </Link>
+                    <blueNavbar.Divider />
+                </blueNavbar.Group>
+            </blueNavbar>
+          </div>
+          <br/>
+          <br/>
         </div>
-      //  }
-    //}
-//);
-//, 
-//rootElement);
-//}
 )
 
 export default Header
-//ReactDOM.render(<App/>,document.getElementById("root"));
     

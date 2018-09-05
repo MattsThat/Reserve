@@ -1,49 +1,38 @@
 
 import  React  from 'react';
-import { render } from 'react-dom';
-import SocialButton from './SocialButton'
+import { FacebookLoginButton, GoogleLoginButton, TwitterLoginButton } from "react-social-login-buttons";
+import {Button, ButtonGroup, ButtonToolbar} from "react-bootstrap"
 
-//const rootElement = document.querySelector('#root1');
-
-const handleSocialLogin = (user) => {
-  console.log(user)
+function handleFacebookLogin (){
+  alert("hello facebook");
+  //console.log(user);
 }
 
-const handleSocialLoginFailure = (err) => {
-  console.error(err)
+function handleGoogleLogin (){
+  alert("hello google");
+  //console.log(user);
 }
+
+function handleTwitterLogin () {
+  alert("hello twitter");
+  //console.log(user);
+}
+
+//const handleSocialLoginFailure = (err) => {
+  //console.error(err)
+//}
 
 const Social = () => (
-//if (rootElement) {
-
-  //render(<Demo/>, rootElement);
-  //render(
-//var App = React.createClass({
-  //      render:function(){
         <div>
-           <ul>
-      <li>6/5 @ Evergreens</li>
-      <li>6/8 vs Kickers</li>
-      <li>6/14 @ United</li>
-    </ul>
+                <Button>
+                  <FacebookLoginButton size="35px" onClick={handleFacebookLogin}/>
+                  </Button>
+                <Button>
+                  <GoogleLoginButton  size="35px" onClick={handleGoogleLogin}/>
+                  </Button>
+                <Button>
+                  <TwitterLoginButton  size="35px" onClick={handleTwitterLogin}/>
+                  </Button>
         </div>
-      //  }
-    //}
-//);
-// 
-//rootElement);
-//}
 )
-export default Social
-
-/*<SocialButton
-provider='facebook'
-appId='YOUR_APP_ID'
-onLoginSuccess={handleSocialLogin}
-onLoginFailure={handleSocialLoginFailure}
->
-Login with Facebook
-</SocialButton>*/
-
-//ReactDOM.render(<App/>,document.getElementById("root"));
-    
+export default Social    
