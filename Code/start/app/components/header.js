@@ -2,7 +2,8 @@
 import  React  from 'react';
 //import { render } from 'react-dom';
 //import { Navbar , Nav, NavDropdown, NavItem, MenuItem }  from 'react-bootstrap';
-import { Link } from 'react-router-dom'
+import { Link, Switch, Route } from 'react-router-dom'
+import Login from './login'
 
 /* Horizontal menu removied from header.
           <div>
@@ -47,7 +48,7 @@ import {
                     <Button className="bp3-minimal" icon="new-person" text="Sign up"/>
                     </Link>
                     <blueNavbar.Divider />
-                    <Link to='/login'>
+                    <Link to='/signup'>
                     <Button className="bp3-minimal" icon="log-in" text="Login" />
                     </Link>
                     <blueNavbar.Divider />
@@ -56,6 +57,10 @@ import {
           </div>
           <br/>
           <br/>
+          <Switch>
+            <Route path='/signup' component={Login} />
+            <Route exact path='/'/>
+          </Switch>
         </div>
 )
 

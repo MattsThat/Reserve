@@ -1,59 +1,84 @@
 
 import  React  from 'react';
 import { FacebookLoginButton, GoogleLoginButton, TwitterLoginButton } from "react-social-login-buttons";
-import {Button, Modal} from "react-bootstrap"
+import { Button, Modal } from "react-bootstrap"
+import LoginEmail from './loginemail';
+import FacebookLogin from './facebooklogin';
+import GoogleLogin from './googlelogin';
+import TwitterLogin from './twitterlogin';
 
-function handleFacebookLogin (){
-  alert("hello facebook");
-  //console.log(user);
-}
+import { Link, Switch, Route } from 'react-router-dom'
+//import Home from './Home'
 
-function handleGoogleLogin (){
-  alert("hello google");
-  //console.log(user);
-}
+class Login extends React.Component {
 
-function handleTwitterLogin () {
-  alert("hello twitter");
-  //console.log(user);
-}
+    constructor(props) {
+        super(props);
 
-function handleClose(){
-   // this.setState({ showModal: false });
-    //alert("closing");
-}
-/*
-Need to try the Modal Component. Its not working as per plan.
+        this.handleShow = this.handleShow.bind(this);
+        this.handleHide = this.handleHide.bind(this);
+        this.state = {
+                show: true
+            };
+        // preserve the initial state in a new object
+        //this.baseState = this.state 
+    }
 
-*/
+    handleShow() {
+        this.setState({ show: true });
+    }
+    
+    handleHide() {
+        this.setState({ show: false });
+        //this.setState(this.baseState);
+    }
 
+    render() {
 
-const Login = () => (
+        const { match } = this.props;
 
-        <div className="static-modal">
-
-              <Modal.Dialog>
-                <Modal.Header>
-                  <Modal.Title>Login</Modal.Title>
+        return(
+        <div>
+            <Modal
+             {...this.props}
+             show={this.state.show}
+             onHide={this.handleHide}
+             keyboard="true"
+             dialogClassName="custom-modal"
+            >
+                <Modal.Header closeButton="true">
+                      <Modal.Title>Login</Modal.Title>
                 </Modal.Header>
                 <Modal.Body align="center">
-                <Button>
-                  <FacebookLoginButton onClick={handleFacebookLogin}/>
-                </Button>
-                <br/>
-                <Button>
-                  <GoogleLoginButton onClick={handleGoogleLogin}/>
-                  </Button>
-                <br/>
-                <Button>
-                  <TwitterLoginButton onClick={handleTwitterLogin}/>
-                </Button>
-                <br/>
+                    <Link to={`${match.url}/facebook`}>
+                        <FacebookLoginButton onClick={this.handleHide}/>
+                    </Link>
+                    <br/>
+                    <Link to={`${match.url}/google`}>
+                        <GoogleLoginButton onClick={this.handleHide}/>
+                    </Link>
+                    <br/>
+                    <Link to={`${match.url}/twitter`}>
+                        <TwitterLoginButton onClick={this.handleHide}/>
+                    </Link>
+                    <br/>
+                    <Link to={`${match.url}/email`}>
+                        <Button bsStyle="primary" className="bp3-minimal" onClick={this.handleHide}>Register with Email
+                        </Button> 
+                    </Link>
                 </Modal.Body>
                 <Modal.Footer>
-                  <Button onClick={handleClose}>Close</Button>
+                  <Button onClick={this.handleHide}>Close</Button>
                 </Modal.Footer>
-              </Modal.Dialog>
+            </Modal> 
+            <Switch>
+                <Route exact path='/signup/email' component={LoginEmail}/>
+                <Route exact path='/signup/facebook' component={FacebookLogin}/>
+                <Route exact path='/signup/google' component={GoogleLogin}/>
+                <Route exact path='/signup/twitter'component={TwitterLogin}/>
+            </Switch>
         </div>
-)
+        );
+    }//end of render
+}//end of class
 export default Login    

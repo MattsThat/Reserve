@@ -6,6 +6,10 @@ module.exports = {
   context: path.join(__dirname, 'app'),
   mode: 'production',
   entry: ['./index.html', './index.js'],
+  performance: {
+    maxEntrypointSize: 5120000,
+    maxAssetSize: 5120000
+  },
   output: { 
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -18,7 +22,7 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['react']
+          presets: ['react','stage-3']
         }
       },
       {
