@@ -6,7 +6,7 @@ import { Button } from "react-bootstrap"
 
 function FieldGroup({ id, label, help, ...props }) {
   return (
-    <FormGroup controlId={id}>
+    <FormGroup controlId={id} size="small">
       <ControlLabel>{label}</ControlLabel>
       <FormControl {...props} />
       {help && <HelpBlock>{help}</HelpBlock>}
@@ -33,7 +33,7 @@ class LoginEmail extends React.Component {
               id="formControlsEmail"
               type="email"
               label="Email address"
-              placeholder="Enter email"
+              placeholder="Enter email" 
             />
             <FieldGroup id="formControlsPassword" label="Password" type="password" />
             <FormGroup>
