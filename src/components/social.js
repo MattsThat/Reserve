@@ -1,7 +1,7 @@
 
 import  React  from 'react';
 import { FacebookLoginButton, GoogleLoginButton, TwitterLoginButton } from "react-social-login-buttons";
-import {Button, ButtonGroup, ButtonToolbar} from "react-bootstrap"
+import {Button} from "react-bootstrap"
 
 function handleFacebookLogin (){
   alert("hello facebook");

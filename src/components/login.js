@@ -2,13 +2,20 @@
 import  React  from 'react';
 import { FacebookLoginButton, GoogleLoginButton, TwitterLoginButton } from "react-social-login-buttons";
 import { Button, Modal } from "react-bootstrap"
-import LoginEmail from './loginemail';
-import FacebookLogin from './facebooklogin';
-import GoogleLogin from './googlelogin';
-import TwitterLogin from './twitterlogin';
 
 import { Link, Switch, Route } from 'react-router-dom'
 //import Home from './Home'
+
+/*
+               
+            <Switch>
+                <Route exact path='/signup/email' component={LoginEmail}/>
+                <Route exact path='/signup/facebook' component={FacebookLogin}/>
+                <Route exact path='/signup/google' component={GoogleLogin}/>
+                <Route exact path='/signup/twitter'component={TwitterLogin}/>
+            </Switch>
+
+*/
 
 class Login extends React.Component {
 
@@ -71,12 +78,6 @@ class Login extends React.Component {
                   <Button onClick={this.handleHide}>Close</Button>
                 </Modal.Footer>
             </Modal> 
-            <Switch>
-                <Route exact path='/signup/email' component={LoginEmail}/>
-                <Route exact path='/signup/facebook' component={FacebookLogin}/>
-                <Route exact path='/signup/google' component={GoogleLogin}/>
-                <Route exact path='/signup/twitter'component={TwitterLogin}/>
-            </Switch>
         </div>
         );
     }//end of render

@@ -11,7 +11,8 @@ module.exports = {
     maxAssetSize: 5120000
   },
   output: { 
-    path: path.join(__dirname, 'dist'),
+//    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'src', 'static', 'dist'),
     filename: 'bundle.js',
     publicPath: '/'
   },

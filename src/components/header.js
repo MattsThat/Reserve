@@ -2,8 +2,9 @@
 import  React  from 'react';
 //import { render } from 'react-dom';
 //import { Navbar , Nav, NavDropdown, NavItem, MenuItem }  from 'react-bootstrap';
-import { Link, Switch, Route } from 'react-router-dom'
+import { Link, Switch, BrowserRouter } from 'react-router-dom'
 import Login from './login'
+import routes from '../routes';
 
 /* Horizontal menu removied from header.
           <div>
@@ -26,6 +27,12 @@ import Login from './login'
             </Navbar>
           </div>
 
+                    <Switch>
+            <Route path='/signup' component={Login} />
+            <Route exact path='/'/>
+          </Switch>
+
+
 */
 import {
     Alignment,
@@ -36,6 +43,7 @@ import {
   const Header = () => (
         <div>
           <div>
+            <BrowserRouter routes={routes}>
             <blueNavbar>
                 <blueNavbar.Group align={Alignment.RIGHT}>
                     <blueNavbar.Heading>Welcome to Sports World</blueNavbar.Heading>
@@ -54,13 +62,10 @@ import {
                     <blueNavbar.Divider />
                 </blueNavbar.Group>
             </blueNavbar>
+            </BrowserRouter>
           </div>
           <br/>
           <br/>
-          <Switch>
-            <Route path='/signup' component={Login} />
-            <Route exact path='/'/>
-          </Switch>
         </div>
 )
 
