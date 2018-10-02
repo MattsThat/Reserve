@@ -1,6 +1,7 @@
 import React from 'react'
-import {FormControl, FormGroup, ControlLabel, HelpBlock} from 'react-bootstrap'
-import { Button } from "react-bootstrap"
+//import {FormControl, FormGroup, ControlLabel, HelpBlock} from 'react-bootstrap'
+//import { Button } from "react-bootstrap"
+import Header from './Header';
 
   /**
    *          
@@ -16,7 +17,8 @@ class FacebookLogin extends React.Component {
     
     return(
       <div>
-FacebookLogin
+      <Header/>
+      FacebookLogin
     </div>
     );//end of return
   }//end of render

@@ -7,7 +7,7 @@
     gray #666c60
 */
 
-body {
+.body {
   font-family:'Segoe UI', Helvetica, sans-serif;
   background-color:#FFFFFF;
 }
@@ -37,76 +37,47 @@ body {
   flex-direction: row;
 }
 
-/* INBOX PANE */
-#inbox-pane {
-  background-color:#6aa0a6;
-}
-
-#inbox-pane > table {
-  text-align:left;  
-}
-
-#inbox-pane > div {
-  background-color: rgba(255,255,255,0.5);
-  list-style: none;
-  padding:10px 20px;
-  margin:5px;
+/* Card Grid
+*/
+.app-header {
+  display:block;
+  padding: 30px;
 }
 
 
-/* CONVERSATION PANE */
-#conversation-pane {
-  background-color:#9aa641;
+.app-card-list {
+  display:inline-block;
+  width:100%;
+  float:right;
+  margin:0;
+  min-height: 75vh;
+  white-space:normal;
+  overflow-x: scroll;
+  margin-top:-70px;
 }
 
-#conversation-pane #messages p {
-  padding:5px;
-  vertical-align: middle;
-}
+  @media(min-width:768px) {
+      width:80%;
+      white-space:nowrap;
+      margin-top: 0;
+  }
+  
+  .card {
+    margin: 60px 30px;
+    display: inline-block;
+  }
+    
+  .card-body {
+        white-space: normal;
+    }
 
-#conversation-pane #messages p.bot {
-  margin-right:50px;
-  background-color:rgba(255,255,255,0.5);  
+.designer-link {
+  display:inline-block;
+  padding-top:40px;
 }
-
-#conversation-pane #messages p.human {
-  margin-left:50px;
-  background-color:rgba(255,255,255,0.2);  
-}
-
-/* STORES PANE */
-#stores-pane {
-  background-color:#c4925d;
-}
-
-#stores-pane > ul {
-  padding-left:0px;
-  list-style: none;
-}
-
-#stores-pane .store {
-  background-color:#f2dfa7;
-  margin-bottom: 10px;
-  box-shadow: 2px 2px 10px rgba(0,0,0,0.6);
-  display:flex;
-}
-
-
-.store > .name {
-  font-weight:bold;
-  flex:1;
-  padding:6px;
-}
-
-#stores-pane .store .orders {
-  display:flex;
-  font-weight:bold;
-  font-size:20pt;
-  vertical-align: middle;
-}
-
-#stores-pane .store .orders > div {
-  padding-right:8px;
-  display:flex;
-  align-items: center;
-}
+/*
+.footer {
+  marginTop: theme.spacing.unit * 8;
+  borderTop: `1px solid ${theme.palette.divider}`;
+  padding: `${theme.spacing.unit * 6}px 0`;
+}*/

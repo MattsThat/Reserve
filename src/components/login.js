@@ -1,9 +1,8 @@
 
 import  React  from 'react';
 import { FacebookLoginButton, GoogleLoginButton, TwitterLoginButton } from "react-social-login-buttons";
-import { Button, Modal } from "react-bootstrap"
-
-import { Link, Switch, Route } from 'react-router-dom'
+import { Button , Modal } from "react-bootstrap"
+import { Link } from 'react-router-dom'
 //import Home from './Home'
 
 /*
@@ -20,6 +19,7 @@ import { Link, Switch, Route } from 'react-router-dom'
 class Login extends React.Component {
 
     constructor(props) {
+       // alert("hello");
         super(props);
 
         this.handleShow = this.handleShow.bind(this);
@@ -32,17 +32,18 @@ class Login extends React.Component {
     }
 
     handleShow() {
+       // alert("hello1");
         this.setState({ show: true });
     }
     
     handleHide() {
+        //alert("hello2");
         this.setState({ show: false });
         //this.setState(this.baseState);
     }
 
     render() {
-
-        const { match } = this.props;
+        //const { match } = this.props;
 
         return(
         <div>
@@ -57,19 +58,19 @@ class Login extends React.Component {
                       <Modal.Title>Login</Modal.Title>
                 </Modal.Header>
                 <Modal.Body align="center">
-                    <Link to={`${match.url}/facebook`}>
+                <Link to = '/facebook'>
                         <FacebookLoginButton onClick={this.handleHide}/>
                     </Link>
                     <br/>
-                    <Link to={`${match.url}/google`}>
+                    <Link to = '/google'>
                         <GoogleLoginButton onClick={this.handleHide}/>
                     </Link>
                     <br/>
-                    <Link to={`${match.url}/twitter`}>
+                    <Link to = '/twitter'>
                         <TwitterLoginButton onClick={this.handleHide}/>
                     </Link>
                     <br/>
-                    <Link to={`${match.url}/email`}>
+                    <Link to = '/email'>
                         <Button bsStyle="primary" className="bp3-minimal" onClick={this.handleHide}>Register with Email
                         </Button> 
                     </Link>
@@ -81,5 +82,7 @@ class Login extends React.Component {
         </div>
         );
     }//end of render
+    //    <Link to={`${match.url}/email`}>
+
 }//end of class
 export default Login    

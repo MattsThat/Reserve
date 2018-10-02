@@ -1,7 +1,7 @@
 import React from 'react'
 import {FormControl, FormGroup, ControlLabel, HelpBlock} from 'react-bootstrap'
-import { Button } from "react-bootstrap"
-
+import { Button } from 'react-bootstrap'
+import Header from './Header';
 
 
 function FieldGroup({ id, label, help, ...props }) {
@@ -28,6 +28,7 @@ class LoginEmail extends React.Component {
     
     return(
       <div>
+        <Header/>
          <form>
             <FieldGroup
               id="formControlsEmail"

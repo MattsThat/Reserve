@@ -5,7 +5,7 @@ var webpack = require('webpack');
 module.exports = {
   context: path.join(__dirname, './'),
   mode: 'production',
-  entry: ['./static/index.html', './index.js'],
+  entry: ['./static/index.html', './routes.js'],
   performance: {
     maxEntrypointSize: 5120000,
     maxAssetSize: 5120000
@@ -40,8 +40,17 @@ module.exports = {
         loader: "url-loader?limit=100000" 
       },
       { 
-        test: /\.jpg$/, 
-        loader: "file-loader" 
+        //test: /\.jpg$/, 
+        //loader: "file-loader" 
+        test: /\.(jpg|png|gif|svg|pdf|ico)$/,
+        use: [
+          {
+              loader: 'file-loader',
+              options: {
+                  name: '[path][name]-[hash:8].[ext]'
+                },
+          },
+        ]
       }
     ]
   },

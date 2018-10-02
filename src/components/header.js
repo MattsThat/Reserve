@@ -2,9 +2,7 @@
 import  React  from 'react';
 //import { render } from 'react-dom';
 //import { Navbar , Nav, NavDropdown, NavItem, MenuItem }  from 'react-bootstrap';
-import { Link, Switch, BrowserRouter } from 'react-router-dom'
-import Login from './login'
-import routes from '../routes';
+import {  Link } from 'react-router-dom'
 
 /* Horizontal menu removied from header.
           <div>
@@ -31,43 +29,47 @@ import routes from '../routes';
             <Route path='/signup' component={Login} />
             <Route exact path='/'/>
           </Switch>
+        <div>
+         {routes}
+         </div>
 
 
 */
 import {
     Alignment,
     Button,
-    Navbar as blueNavbar,
+    Navbar as BlueNavbar,
   } from "@blueprintjs/core";
 
-  const Header = () => (
-        <div>
-          <div>
-            <BrowserRouter routes={routes}>
-            <blueNavbar>
-                <blueNavbar.Group align={Alignment.RIGHT}>
-                    <blueNavbar.Heading>Welcome to Sports World</blueNavbar.Heading>
-                    <blueNavbar.Divider />
-                    <Link to='/'>
+  class Header extends React.Component {
+
+    render() {
+      return(
+         <div>
+            <BlueNavbar>
+                <BlueNavbar.Group align={Alignment.RIGHT}>
+                    <BlueNavbar.Heading>Welcome to Sports World</BlueNavbar.Heading>
+                    <BlueNavbar.Divider />
+                    <Link to='/home'>
                     <Button className="bp3-minimal" icon="home" text="Home"/>
                     </Link>
-                    <blueNavbar.Divider />
+                    <BlueNavbar.Divider />
                     <Link to='/signup'>
                     <Button className="bp3-minimal" icon="new-person" text="Sign up"/>
                     </Link>
-                    <blueNavbar.Divider />
+                    <BlueNavbar.Divider />
                     <Link to='/signup'>
                     <Button className="bp3-minimal" icon="log-in" text="Login" />
                     </Link>
-                    <blueNavbar.Divider />
-                </blueNavbar.Group>
-            </blueNavbar>
-            </BrowserRouter>
+                    <BlueNavbar.Divider />
+                </BlueNavbar.Group>
+            </BlueNavbar>
+          <br/>
+          <br/>
           </div>
-          <br/>
-          <br/>
-        </div>
-)
+        );//end of return
+    }//end of render
+  }//end of class
 
 export default Header
     
