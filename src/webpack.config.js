@@ -4,7 +4,7 @@ var webpack = require('webpack');
 
 module.exports = {
   context: path.join(__dirname, './'),
-  mode: 'production',
+  mode: 'development',
   entry: ['./static/index.html', './routes.js'],
   performance: {
     maxEntrypointSize: 5120000,
@@ -19,13 +19,27 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.js?$/,
+        //test: /.js?$/,
+        test: /\.(js|jsx)$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        options: { babelrcRoots: ['.', '../'] }, // <-- this line fixed it!
+        /*query: {
+          presets: ['@babel/react']
+        }*/
+      },
+      /*{
+        test: /\.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['react','stage-3']
+            presets: ['react']
         }
       },
+      {
+        test: /\.scss$/,
+        loader: 'style!css!sass!sass-resources'
+      },*/
       {
         test: /\.html$/,
         loader: "file-loader?name=[name].[ext]",
