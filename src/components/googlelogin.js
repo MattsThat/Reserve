@@ -5,7 +5,8 @@ import Header from './Header';
 
   /**
    *          
-   * 
+   *         <Header/>
+
    */
 class GoogleLogin extends React.Component {
 
@@ -17,8 +18,7 @@ class GoogleLogin extends React.Component {
     
     return(
       <div>
-        <Header/>
-        GoogleLogin
+        Google Signed up
     </div>
     );//end of return
   }//end of render

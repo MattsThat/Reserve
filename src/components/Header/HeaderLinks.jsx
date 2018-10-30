@@ -17,18 +17,8 @@ import CustomDropdown from "../CustomDropdown/CustomDropdown.jsx";
 import Button from "../CustomButtons/Button.jsx";
 
 import headerLinksStyle from "../../assets/jss/material-kit-react/components/headerLinksStyle.jsx";
-
-
-
-function HeaderLinks({ ...props }) {
-  //class HeaderLinks extends React.Component {
-
-  const { classes } = props;
-
-  //render(){
-  return (
-    <List className={classes.list}>
-      <ListItem className={classes.listItem}>
+/**
+ *       <ListItem className={classes.listItem}>
         <CustomDropdown
           noLiPadding
           buttonText="Components"
@@ -51,14 +41,47 @@ function HeaderLinks({ ...props }) {
           ]}
         />
       </ListItem>
+
+ * 
+ */
+
+
+function HeaderLinks({ ...props }) {
+  //class HeaderLinks extends React.Component {
+
+  const { classes } = props;
+
+  //render(){
+  return (
+    <List className={classes.list}>
       <ListItem className={classes.listItem}>
         <Button
-          href="https://www.creative-tim.com/product/material-kit-react"
+          href="/home"
           color="transparent"
-          target="_blank"
+          //target="_blank"
           className={classes.navLink}
         >
-          <CloudDownload className={classes.icons} /> Download
+        <CloudDownload className={classes.icons} /> Home
+        </Button>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Button
+          href="/signup"
+          color="transparent"
+          //target="_blank"
+          className={classes.navLink}
+        >
+        <CloudDownload className={classes.icons} /> Sign up
+        </Button>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Button
+          href="/email"
+          color="transparent"
+          //target="_blank"
+          className={classes.navLink}
+        >
+        <CloudDownload className={classes.icons} /> Login
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>

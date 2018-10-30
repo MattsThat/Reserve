@@ -1,6 +1,9 @@
 import React from 'react'
 import Header from './Header/Header'
 import Home from './Home'
+import CarouselHP from './carouselhp'
+//import htmlContent from './../static/hello.html';
+
 
 class App extends React.Component
 {
@@ -29,9 +32,11 @@ class App extends React.Component
 
   render() {
     return(
+      /*<div dangerouslySetInnerHTML={ {__html: htmlContent} } />*/
       <div>
       <Header/>
       <br/>
+      <CarouselHP/>
       <br/>
       <br/>
       <Home/>

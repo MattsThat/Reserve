@@ -6,6 +6,7 @@ module.exports = {
   context: path.join(__dirname, './'),
   mode: 'development',
   entry: ['./static/index.html', './routes.js'],
+  //entry: ['./static/index.html'],
   performance: {
     maxEntrypointSize: 5120000,
     maxAssetSize: 5120000

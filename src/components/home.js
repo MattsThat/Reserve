@@ -19,6 +19,30 @@ import Header from './Header/Header';
   },
 };*/
 
+/**
+ *         <Carousel>
+          <Carousel.Item>
+            <img width={500} height={400} alt="500x400" src="../static/img/home1.jpg" />
+            <Carousel.Caption>
+              <h3>Enjoy the Game</h3>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img width={500} height={400} alt="500x400" src="../static/img/home2.jpg" />
+            <Carousel.Caption>
+              <h3>Love the Game</h3>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img width={500} height={400} alt="500x400" src="../static/img/home3.jpg" />
+            <Carousel.Caption>
+              <h3>Create Experiences</h3>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+
+ */
+
 const styles = theme => ({
   '@global': {
     body: {
@@ -78,27 +102,6 @@ class Home extends React.Component
   render() {
     return(
       <div>
-        <Header/>
-        <Carousel>
-          <Carousel.Item>
-            <img width={500} height={400} alt="500x400" src="../static/img/home1.jpg" />
-            <Carousel.Caption>
-              <h3>Enjoy the Game</h3>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img width={500} height={400} alt="500x400" src="../static/img/home2.jpg" />
-            <Carousel.Caption>
-              <h3>Love the Game</h3>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img width={500} height={400} alt="500x400" src="../static/img/home3.jpg" />
-            <Carousel.Caption>
-              <h3>Create Experiences</h3>
-            </Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
         <br/>
         <CardGrid/>
         <br/>
