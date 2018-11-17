@@ -59,6 +59,7 @@ class Login extends React.Component {
                 </Modal.Footer>
             </Modal> 
             <FacebookLoginButton onClick={this.handleHide}/>
+
          */
 
         const responseFacebook = (response) => {

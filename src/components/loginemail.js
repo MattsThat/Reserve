@@ -13,6 +13,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
 
+
 const styles = theme => ({
   layout: {
     width: 'auto',
@@ -45,8 +46,28 @@ const styles = theme => ({
   },
 });
 
-function SignIn(props) {
-  const { classes } = props;
+class LoginEmail extends React.Component
+{
+  constructor() {
+    super();
+    this.dbconnect = this.dbconnect.bind(this);
+  }
+  
+  dbconnect(event){
+    event.preventDefault();
+    const data = new FormData(event.target);
+    alert(data);
+    fetch('/home', {
+      method: 'POST',
+      body: data,
+    });
+    then(function(data){
+       alert(data.results); 
+    } 
+  )};
+  
+ render(props) {
+  const { classes } = this.props;
 
   return (
     <React.Fragment>
@@ -62,7 +83,7 @@ function SignIn(props) {
           <form className={classes.form}>
             <FormControl margin="normal" required fullWidth>
               <InputLabel htmlFor="email">Email Address</InputLabel>
-              <Input id="email" name="email" autoComplete="email" autoFocus />
+              <Input id="emailid" name="emailid" autoComplete="emailid" autoFocus />
             </FormControl>
             <FormControl margin="normal" required fullWidth>
               <InputLabel htmlFor="password">Password</InputLabel>
@@ -79,10 +100,12 @@ function SignIn(props) {
             />
             <Button
               type="submit"
+              
               fullWidth
               variant="contained"
               color="primary"
               className={classes.submit}
+              onClick={this.dbconnect}
             >
               Sign in
             </Button>
@@ -91,10 +114,12 @@ function SignIn(props) {
       </main>
     </React.Fragment>
   );
-}
+}//end of render
+}//end of class
 
-SignIn.propTypes = {
+LoginEmail.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(SignIn);
+export default withStyles(styles)(LoginEmail);
+//export default LoginEmail;
