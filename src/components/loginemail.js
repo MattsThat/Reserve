@@ -12,6 +12,7 @@ import LockIcon from '@material-ui/icons/LockOutlined';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
+import axios from "axios";
 
 
 const styles = theme => ({
@@ -48,12 +49,24 @@ const styles = theme => ({
 
 class LoginEmail extends React.Component
 {
+  
+  state = {
+    data: [],
+    id: 0,
+    username: null,
+    password: null,
+    intervalIsSet: false,
+    idToDelete: null,
+    idToUpdate: null,
+    objectToUpdate: null
+  };
+
   constructor() {
     super();
-    this.dbconnect = this.dbconnect.bind(this);
+    //this.dbconnect = this.dbconnect.bind(this);
   }
   
-  dbconnect(event){
+  /*dbconnect(event){
     event.preventDefault();
     const data = new FormData(event.target);
     alert(data);
@@ -64,7 +77,93 @@ class LoginEmail extends React.Component
     then(function(data){
        alert(data.results); 
     } 
-  )};
+  )};*/
+
+  // when component mounts, first thing it does is fetch all existing data in our db
+  // then we incorporate a polling logic so that we can easily see if our db has 
+  // changed and implement those changes into our UI
+  componentDidMount() {
+    alert("1");
+    this.getDataFromDb();
+    if (!this.state.intervalIsSet) {
+      let interval = setInterval(this.getDataFromDb, 1000);
+      this.setState({ intervalIsSet: interval });
+    }
+  }
+
+  // never let a process live forever 
+  // always kill a process everytime we are done using it
+  componentWillUnmount() {
+    alert("2");
+    if (this.state.intervalIsSet) {
+      clearInterval(this.state.intervalIsSet);
+      this.setState({ intervalIsSet: null });
+    }
+  }
+
+  // just a note, here, in the front end, we use the id key of our data object 
+  // in order to identify which we want to Update or delete.
+  // for our back end, we use the object id assigned by MongoDB to modify 
+  // data base entries
+
+  // our first get method that uses our backend api to 
+  // fetch data from our data base
+  getDataFromDb = () => {
+    fetch("/api/getData")
+      .then(data => data.json())
+      .then(res => this.setState({ data: res.data }));
+  };
+
+  // our put method that uses our backend api
+  // to create new query into our data base
+  putDataToDB = (username, password) => {
+    let currentIds = this.state.data.map(data => data.id);
+    let idToBeAdded = 0;
+    while (currentIds.includes(idToBeAdded)) {
+      ++idToBeAdded;
+    }
+    axios.post("/api/putData", {
+      id: idToBeAdded,
+      username: username,
+      password: password
+    });
+    alert("5");
+  };
+
+
+  // our delete method that uses our backend api 
+  // to remove existing database information
+  deleteFromDB = idTodelete => {
+    let objIdToDelete = null;
+    this.state.data.forEach(dat => {
+      if (dat.id == idTodelete) {
+        objIdToDelete = dat._id;
+      }
+    });
+
+    axios.delete("/api/deleteData", {
+      data: {
+        id: objIdToDelete
+      }
+    });
+  };
+
+
+  // our update method that uses our backend api
+  // to overwrite existing data base information
+  updateDB = (idToUpdate, updateToApply) => {
+    let objIdToUpdate = null;
+    this.state.data.forEach(dat => {
+      if (dat.id == idToUpdate) {
+        objIdToUpdate = dat._id;
+      }
+    });
+
+    axios.post("/api/updateData", {
+      id: objIdToUpdate,
+      update: { message: updateToApply }
+    });
+  };
   
  render(props) {
   const { classes } = this.props;
@@ -83,7 +182,9 @@ class LoginEmail extends React.Component
           <form className={classes.form}>
             <FormControl margin="normal" required fullWidth>
               <InputLabel htmlFor="email">Email Address</InputLabel>
-              <Input id="emailid" name="emailid" autoComplete="emailid" autoFocus />
+              <Input id="emailid" name="emailid" autoComplete="emailid" 
+              onChange={e => this.setState({ username: e.target.value })} 
+              autoFocus />
             </FormControl>
             <FormControl margin="normal" required fullWidth>
               <InputLabel htmlFor="password">Password</InputLabel>
@@ -91,6 +192,7 @@ class LoginEmail extends React.Component
                 name="password"
                 type="password"
                 id="password"
+                onChange={e => this.setState({ password: e.target.value })} 
                 autoComplete="current-password"
               />
             </FormControl>
@@ -105,7 +207,7 @@ class LoginEmail extends React.Component
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={this.dbconnect}
+              onClick={() => this.putDataToDB(this.state.username,this.state.password)}
             >
               Sign in
             </Button>
